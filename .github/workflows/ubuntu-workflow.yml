@@ -1,0 +1,28 @@
+name: "anomaly-detection w jupyter NBs CI workflow"
+
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month     
+      
+jobs:
+
+
+
+  jupyter-nb-anomaly-detection-ubuntu-latest-job:
+    name: "ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+    - name: "run NB"
+      run: |
+        pip install jupyter  
+        pip install numpy #ModuleNotFoundError: No module named 'numpy'    
+        pip install matplotlib #ModuleNotFoundError: No module named 'matplotlib'  
+        pip install markupsafe==2.0.1 #ImportError: cannot import name 'soft_unicode' from 'markupsafe'  
+        jupyter nbconvert --to notebook --execute jupyter-notebooks/basic-anomaly-detection.ipynb
+
