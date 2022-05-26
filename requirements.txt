@@ -1,0 +1,5 @@
+-c constraints.txt
+jupyter
+numpy
+matplotlib
+markupsafe
