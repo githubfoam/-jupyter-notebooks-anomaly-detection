@@ -30,15 +30,15 @@ jobs:
         pip freeze > requirements.txt
         pip list
 
-  jupyter-nb-anomaly-detection-pinned-ubuntu-latest-job:
-    name: "jupyter-nb-anomaly-detection with pinned libraries"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status  
-    - name: "run NB"
-      run: |
-        set -ex
-        pip install -r requirements.txt
-        jupyter nbconvert --to notebook --execute jupyter-notebooks/basic-anomaly-detection.ipynb
+  # jupyter-nb-anomaly-detection-pinned-ubuntu-latest-job:
+  #   name: "jupyter-nb-anomaly-detection with pinned libraries"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status  
+  #   - name: "run NB"
+  #     run: |
+  #       set -ex
+  #       pip install -r requirements.txt
+  #       jupyter nbconvert --to notebook --execute jupyter-notebooks/basic-anomaly-detection.ipynb
