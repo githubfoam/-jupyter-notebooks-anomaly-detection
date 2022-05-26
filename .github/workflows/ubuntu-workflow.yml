@@ -25,10 +25,11 @@ jobs:
         pip install numpy #ModuleNotFoundError: No module named 'numpy'    
         pip install matplotlib #ModuleNotFoundError: No module named 'matplotlib'  
         pip install markupsafe==2.0.1 #ImportError: cannot import name 'soft_unicode' from 'markupsafe'  
-        jupyter nbconvert --to notebook --execute jupyter-notebooks/basic-anomaly-detection.ipynb
         #create a requirements.txt file, which contains a simple list of all the packages in the current environment, and their respective versions
-        pip freeze > requirements.txt
-        pip list
+        # pip freeze > requirements.txt
+        # pip list
+        jupyter nbconvert --to notebook --execute jupyter-notebooks/basic-anomaly-detection.ipynb
+
 
   # jupyter-nb-anomaly-detection-pinned-ubuntu-latest-job:
   #   name: "jupyter-nb-anomaly-detection with pinned libraries"
